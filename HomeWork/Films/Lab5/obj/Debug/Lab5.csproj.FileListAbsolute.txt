@@ -1,0 +1,9 @@
+D:\Нечет\задача\Lab5\Lab5\bin\Debug\Lab5.exe.config
+D:\Нечет\задача\Lab5\Lab5\bin\Debug\Lab5.exe
+D:\Нечет\задача\Lab5\Lab5\bin\Debug\Lab5.pdb
+D:\Нечет\задача\Lab5\Lab5\obj\Debug\Lab5.csprojResolveAssemblyReference.cache
+D:\Нечет\задача\Lab5\Lab5\obj\Debug\Lab5.exe
+D:\Нечет\задача\Lab5\Lab5\obj\Debug\Lab5.pdb
+D:\Нечет\задача\Cinema\Lab5\bin\Debug\Lab5.exe.config
+D:\Нечет\задача\Cinema\Lab5\obj\Debug\Lab5.exe
+D:\Нечет\задача\Cinema\Lab5\obj\Debug\Lab5.pdb

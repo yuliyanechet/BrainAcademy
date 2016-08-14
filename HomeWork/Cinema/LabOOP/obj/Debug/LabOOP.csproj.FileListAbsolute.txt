@@ -1,0 +1,6 @@
+D:\Нечет\задача\LabOOP\LabOOP\bin\Debug\LabOOP.exe.config
+D:\Нечет\задача\LabOOP\LabOOP\bin\Debug\LabOOP.exe
+D:\Нечет\задача\LabOOP\LabOOP\bin\Debug\LabOOP.pdb
+D:\Нечет\задача\LabOOP\LabOOP\obj\Debug\LabOOP.csprojResolveAssemblyReference.cache
+D:\Нечет\задача\LabOOP\LabOOP\obj\Debug\LabOOP.exe
+D:\Нечет\задача\LabOOP\LabOOP\obj\Debug\LabOOP.pdb

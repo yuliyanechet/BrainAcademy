@@ -1,0 +1,6 @@
+D:\Нечет\задача\CSharp_Net_module1_1_4_lab\CSharp_Net_module1_1_4_lab\bin\Debug\CSharp_Net_module1_1_4_lab.exe.config
+D:\Нечет\задача\CSharp_Net_module1_1_4_lab\CSharp_Net_module1_1_4_lab\bin\Debug\CSharp_Net_module1_1_4_lab.exe
+D:\Нечет\задача\CSharp_Net_module1_1_4_lab\CSharp_Net_module1_1_4_lab\bin\Debug\CSharp_Net_module1_1_4_lab.pdb
+D:\Нечет\задача\CSharp_Net_module1_1_4_lab\CSharp_Net_module1_1_4_lab\obj\Debug\CSharp_Net_module1_1_4_lab.csprojResolveAssemblyReference.cache
+D:\Нечет\задача\CSharp_Net_module1_1_4_lab\CSharp_Net_module1_1_4_lab\obj\Debug\CSharp_Net_module1_1_4_lab.exe
+D:\Нечет\задача\CSharp_Net_module1_1_4_lab\CSharp_Net_module1_1_4_lab\obj\Debug\CSharp_Net_module1_1_4_lab.pdb

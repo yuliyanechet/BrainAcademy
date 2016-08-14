@@ -1,0 +1,6 @@
+D:\Нечет\задача\Hello_Cons_Dr_Methods\Hello_Cons_Dr_Methods\bin\Debug\Hello_Cons_Dr_Methods.exe.config
+D:\Нечет\задача\Hello_Cons_Dr_Methods\Hello_Cons_Dr_Methods\bin\Debug\Hello_Cons_Dr_Methods.exe
+D:\Нечет\задача\Hello_Cons_Dr_Methods\Hello_Cons_Dr_Methods\bin\Debug\Hello_Cons_Dr_Methods.pdb
+D:\Нечет\задача\Hello_Cons_Dr_Methods\Hello_Cons_Dr_Methods\obj\Debug\Hello_Cons_Dr_Methods.csprojResolveAssemblyReference.cache
+D:\Нечет\задача\Hello_Cons_Dr_Methods\Hello_Cons_Dr_Methods\obj\Debug\Hello_Cons_Dr_Methods.exe
+D:\Нечет\задача\Hello_Cons_Dr_Methods\Hello_Cons_Dr_Methods\obj\Debug\Hello_Cons_Dr_Methods.pdb
