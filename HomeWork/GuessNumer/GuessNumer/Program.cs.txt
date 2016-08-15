@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GuessNumer
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int machineNumber;
+            int userNumber;
+            machineNumber = new Random().Next(1, 101);
+
+            do
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("Enter your guess: ");
+                userNumber = Int32.Parse(Console.ReadLine());
+                if (userNumber < machineNumber)
+                {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine(userNumber + " Too Low!");
+                }
+                else if (userNumber > machineNumber)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(userNumber + " Too high!");
+                }
+                else 
+                {
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.WriteLine(userNumber + " is right. Congratulation!");
+                }
+            }
+            while (userNumber != machineNumber);
+            Console.ReadLine();
+        }
+    }
+}

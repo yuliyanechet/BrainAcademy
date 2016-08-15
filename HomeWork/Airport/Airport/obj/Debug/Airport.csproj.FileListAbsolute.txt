@@ -4,3 +4,9 @@ D:\Нечет\BrainAcademy\HomeWork\Airport\Airport\bin\Debug\Airport.pdb
 D:\Нечет\BrainAcademy\HomeWork\Airport\Airport\obj\Debug\Airport.csprojResolveAssemblyReference.cache
 D:\Нечет\BrainAcademy\HomeWork\Airport\Airport\obj\Debug\Airport.exe
 D:\Нечет\BrainAcademy\HomeWork\Airport\Airport\obj\Debug\Airport.pdb
+C:\Users\Student\Desktop\nnnn\HomeWork\Airport\Airport\bin\Debug\Airport.exe.config
+C:\Users\Student\Desktop\nnnn\HomeWork\Airport\Airport\obj\Debug\Airport.exe
+C:\Users\Student\Desktop\nnnn\HomeWork\Airport\Airport\obj\Debug\Airport.pdb
+C:\Users\Student\Desktop\nnnn\HomeWork\Airport\Airport\bin\Debug\Airport.exe
+C:\Users\Student\Desktop\nnnn\HomeWork\Airport\Airport\bin\Debug\Airport.pdb
+C:\Users\Student\Desktop\nnnn\HomeWork\Airport\Airport\obj\Debug\Airport.csprojResolveAssemblyReference.cache

@@ -4,3 +4,6 @@ D:\Нечет\задача\Hello_Cons_Dr_Methods\Hello_Cons_Dr_Methods\bin\Debug
 D:\Нечет\задача\Hello_Cons_Dr_Methods\Hello_Cons_Dr_Methods\obj\Debug\Hello_Cons_Dr_Methods.csprojResolveAssemblyReference.cache
 D:\Нечет\задача\Hello_Cons_Dr_Methods\Hello_Cons_Dr_Methods\obj\Debug\Hello_Cons_Dr_Methods.exe
 D:\Нечет\задача\Hello_Cons_Dr_Methods\Hello_Cons_Dr_Methods\obj\Debug\Hello_Cons_Dr_Methods.pdb
+C:\Users\Student\Desktop\nnnn\HomeWork\DrawBox\Hello_Cons_Dr_Methods\bin\Debug\Hello_Cons_Dr_Methods.exe.config
+C:\Users\Student\Desktop\nnnn\HomeWork\DrawBox\Hello_Cons_Dr_Methods\obj\Debug\Hello_Cons_Dr_Methods.exe
+C:\Users\Student\Desktop\nnnn\HomeWork\DrawBox\Hello_Cons_Dr_Methods\obj\Debug\Hello_Cons_Dr_Methods.pdb

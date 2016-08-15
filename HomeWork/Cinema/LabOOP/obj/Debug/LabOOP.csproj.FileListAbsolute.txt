@@ -4,3 +4,6 @@ D:\Нечет\задача\LabOOP\LabOOP\bin\Debug\LabOOP.pdb
 D:\Нечет\задача\LabOOP\LabOOP\obj\Debug\LabOOP.csprojResolveAssemblyReference.cache
 D:\Нечет\задача\LabOOP\LabOOP\obj\Debug\LabOOP.exe
 D:\Нечет\задача\LabOOP\LabOOP\obj\Debug\LabOOP.pdb
+C:\Users\Student\Desktop\nnnn\HomeWork\Cinema\LabOOP\bin\Debug\LabOOP.exe.config
+C:\Users\Student\Desktop\nnnn\HomeWork\Cinema\LabOOP\obj\Debug\LabOOP.exe
+C:\Users\Student\Desktop\nnnn\HomeWork\Cinema\LabOOP\obj\Debug\LabOOP.pdb
