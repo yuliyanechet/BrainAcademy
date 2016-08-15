@@ -10,3 +10,6 @@ C:\Users\Philipp\Desktop\CSharp_Net_module1_2_3_lab\CSharp_Net_module1_2_3_lab\o
 C:\Users\Philipp\Desktop\CSharp_Net_module1_2_3_lab\CSharp_Net_module1_2_3_lab\bin\Debug\CSharp_Net_module1_2_3_lab.exe
 C:\Users\Philipp\Desktop\CSharp_Net_module1_2_3_lab\CSharp_Net_module1_2_3_lab\bin\Debug\CSharp_Net_module1_2_3_lab.pdb
 C:\Users\Philipp\Desktop\CSharp_Net_module1_2_3_lab\CSharp_Net_module1_2_3_lab\obj\Debug\CSharp_Net_module1_2_3_lab.csprojResolveAssemblyReference.cache
+C:\Users\Student\Desktop\nnnn\HomeWork\Currency\CSharp_Net_module1_2_3_lab\bin\Debug\CSharp_Net_module1_2_3_lab.exe.config
+C:\Users\Student\Desktop\nnnn\HomeWork\Currency\CSharp_Net_module1_2_3_lab\obj\Debug\CSharp_Net_module1_2_3_lab.exe
+C:\Users\Student\Desktop\nnnn\HomeWork\Currency\CSharp_Net_module1_2_3_lab\obj\Debug\CSharp_Net_module1_2_3_lab.pdb

@@ -47,6 +47,7 @@ namespace Airport
     {
         static void Main(string[] args)
         {
+            Console.WriteLine();
             Flight[] arrivals = new Flight[]
             {
                 new Flight(Convert.ToDateTime("13/08/2016 14:50:50.42"), 5, "Antalia", "Air Alps Aviation", 1, Status.Arrived),
