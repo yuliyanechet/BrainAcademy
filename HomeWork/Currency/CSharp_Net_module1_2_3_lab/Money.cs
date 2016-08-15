@@ -105,7 +105,7 @@ namespace CSharp_Net_module1_2_3_lab
 
         public static bool operator ==(Money obj1, Money obj2)
         {
-            if (obj1.Amount == obj2.Amount)
+            if (obj1.Currency == obj2.Currency)
             {
                 return true;
             }
