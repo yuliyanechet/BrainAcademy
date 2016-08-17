@@ -46,6 +46,7 @@
     <Compile Include="Address.cs" />
     <Compile Include="AliveEntity.cs" />
     <Compile Include="Band.cs" />
+    <Compile Include="Fan.cs" />
     <Compile Include="Human.cs" />
     <Compile Include="Musician.cs" />
     <Compile Include="Program.cs" />
