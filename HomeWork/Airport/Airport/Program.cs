@@ -75,6 +75,7 @@ namespace Airport
                 Console.WriteLine("5 - search by");
                 Console.WriteLine("6 - search the nearest flight");
                 Console.WriteLine();
+                bool noResultFound = true;
                 choice = Console.ReadLine();
                 Console.Clear();
                 switch (choice)
@@ -216,7 +217,7 @@ namespace Airport
                             Flight[] arrTemp = new Flight[departures.Length + 1];
                             for (int i = 0; i < departures.Length; i++)
                             {
-                                arrTemp[i] = arrivals[i];
+                                arrTemp[i] = departures[i];
                             }
                             arrTemp[departures.Length] = userFlight;
                             departures = arrTemp;
@@ -234,6 +235,7 @@ namespace Airport
                         Console.WriteLine();
                         Console.WriteLine("Enter flight number you want to edit: ");
                         int editFlifghtNumber = Convert.ToInt32(Console.ReadLine());
+                        noResultFound = true;
                         Flight currentFlight = arrivals[0];
                         bool isFirst = false;
                         int count = 0;
@@ -242,6 +244,7 @@ namespace Airport
                         {
                             if (i < arrivals.Length && editFlifghtNumber == arrivals[i].Number)
                             {
+                                noResultFound = false;
                                 currentFlight = arrivals[i];
                                 count = i;
                                 isFirst = true;
@@ -249,93 +252,102 @@ namespace Airport
                             }
                             if (i < departures.Length && editFlifghtNumber == departures[i].Number)
                             {
+                                noResultFound = false;
                                 currentFlight = departures[i];
                                 count = i;
                                 break;
                             }
                         }
-                        Console.WriteLine("Enter new Data value in the folowing format dd/mm/yyyy hh:mm:ss or click Enter to skip");
-                        string newDate = Console.ReadLine();
-                        if (newDate != "")
+                        if (!noResultFound)
                         {
-                            currentFlight.Date = Convert.ToDateTime(newDate);
-                        }
-                        Console.WriteLine("Enter new flight Number or click Enter to skip");
-                        string newNumber = Console.ReadLine();
-                        if (newNumber != "")
-                        {
-                            currentFlight.Number = Convert.ToInt32(newNumber);
-                        }
-                        Console.WriteLine("Enter new City or click Enter to skip");
-                        string newCity = Console.ReadLine();
-                        if (newCity != "")
-                        {
-                            currentFlight.City = newCity;
-                        }
-                        Console.WriteLine("Enter new Airline or click Enter to skip");
-                        string newAirline = Console.ReadLine();
-                        if (newAirline != "")
-                        {
-                            currentFlight.Airline = newAirline;
-                        }
-                        Console.WriteLine("Enter new Terminal or click Enter to skip");
-                        string newTerminal = Console.ReadLine();
-                        if (newTerminal != "")
-                        {
-                            currentFlight.Terminal = Convert.ToInt32(newTerminal);
-                        }
-                        Console.WriteLine("Please enter Status:");
-                        Console.WriteLine("1 - Check_in");
-                        Console.WriteLine("2 - GateClosed");
-                        Console.WriteLine("3 - Arrived");
-                        Console.WriteLine("4 - Departed_at");
-                        Console.WriteLine("5 - Unknown");
-                        Console.WriteLine("6 - Canceled");
-                        Console.WriteLine("7 - Expected_at");
-                        Console.WriteLine("8 - Delayed");
-                        Console.WriteLine("9 - In_flight");
-                        string newStatus = Console.ReadLine();
-                        if (newStatus != "")
-                        {
-                            switch (newStatus)
+                            Console.WriteLine("Enter new Data value in the folowing format dd/mm/yyyy hh:mm:ss or click Enter to skip");
+                            string newDate = Console.ReadLine();
+                            if (newDate != "")
                             {
-                                case "1":
-                                    currentFlight.Status = Status.Check_in;
-                                    break;
-                                case "2":
-                                    currentFlight.Status = Status.GateClosed;
-                                    break;
-                                case "3":
-                                    currentFlight.Status = Status.Arrived;
-                                    break;
-                                case "4":
-                                    currentFlight.Status = Status.Departed_at;
-                                    break;
-                                case "5":
-                                    currentFlight.Status = Status.Unknown;
-                                    break;
-                                case "6":
-                                    currentFlight.Status = Status.Canceled;
-                                    break;
-                                case "7":
-                                    currentFlight.Status = Status.Expected_at;
-                                    break;
-                                case "8":
-                                    currentFlight.Status = Status.Delayed;
-                                    break;
-                                case "9":
-                                    currentFlight.Status = Status.In_flight;
-                                    break;
+                                currentFlight.Date = Convert.ToDateTime(newDate);
                             }
-                        }
-                        if (isFirst)
-                        {
-                            arrivals[count] = currentFlight;
+                            Console.WriteLine("Enter new flight Number or click Enter to skip");
+                            string newNumber = Console.ReadLine();
+                            if (newNumber != "")
+                            {
+                                currentFlight.Number = Convert.ToInt32(newNumber);
+                            }
+                            Console.WriteLine("Enter new City or click Enter to skip");
+                            string newCity = Console.ReadLine();
+                            if (newCity != "")
+                            {
+                                currentFlight.City = newCity;
+                            }
+                            Console.WriteLine("Enter new Airline or click Enter to skip");
+                            string newAirline = Console.ReadLine();
+                            if (newAirline != "")
+                            {
+                                currentFlight.Airline = newAirline;
+                            }
+                            Console.WriteLine("Enter new Terminal or click Enter to skip");
+                            string newTerminal = Console.ReadLine();
+                            if (newTerminal != "")
+                            {
+                                currentFlight.Terminal = Convert.ToInt32(newTerminal);
+                            }
+                            Console.WriteLine("Please enter Status:");
+                            Console.WriteLine("1 - Check_in");
+                            Console.WriteLine("2 - GateClosed");
+                            Console.WriteLine("3 - Arrived");
+                            Console.WriteLine("4 - Departed_at");
+                            Console.WriteLine("5 - Unknown");
+                            Console.WriteLine("6 - Canceled");
+                            Console.WriteLine("7 - Expected_at");
+                            Console.WriteLine("8 - Delayed");
+                            Console.WriteLine("9 - In_flight");
+                            string newStatus = Console.ReadLine();
+                            if (newStatus != "")
+                            {
+                                switch (newStatus)
+                                {
+                                    case "1":
+                                        currentFlight.Status = Status.Check_in;
+                                        break;
+                                    case "2":
+                                        currentFlight.Status = Status.GateClosed;
+                                        break;
+                                    case "3":
+                                        currentFlight.Status = Status.Arrived;
+                                        break;
+                                    case "4":
+                                        currentFlight.Status = Status.Departed_at;
+                                        break;
+                                    case "5":
+                                        currentFlight.Status = Status.Unknown;
+                                        break;
+                                    case "6":
+                                        currentFlight.Status = Status.Canceled;
+                                        break;
+                                    case "7":
+                                        currentFlight.Status = Status.Expected_at;
+                                        break;
+                                    case "8":
+                                        currentFlight.Status = Status.Delayed;
+                                        break;
+                                    case "9":
+                                        currentFlight.Status = Status.In_flight;
+                                        break;
+                                }
+                            }
+                            if (isFirst)
+                            {
+                                arrivals[count] = currentFlight;
+                            }
+                            else
+                            {
+                                departures[count] = currentFlight;
+                            }
                         }
                         else
                         {
-                            departures[count] = currentFlight;
+                            Console.WriteLine("No Results Found");
                         }
+
                         break;
                         #endregion
                 }
@@ -346,10 +358,12 @@ namespace Airport
                         Console.WriteLine();
                         Console.WriteLine("Enter flight number you want to delete: ");
                         int deleteFlifghtNumber = Convert.ToInt32(Console.ReadLine());
+                        noResultFound = true;
                         for (int i = 0; i < arrivals.Length; i++)
                         {
                             if (arrivals[i].Number == deleteFlifghtNumber)
                             {
+                                noResultFound = false;
                                 Flight[] arrTempDelete = new Flight[arrivals.Length - 1];
                                 int reserved = 0;
                                 for (int j = 0; j < arrivals.Length; j++)
@@ -371,6 +385,7 @@ namespace Airport
                         {
                             if (departures[i].Number == deleteFlifghtNumber)
                             {
+                                noResultFound = false;
                                 Flight[] arrTempDelete = new Flight[departures.Length - 1];
                                 int reserved = 0;
                                 for (int j = 0; j < departures.Length; j++)
@@ -388,6 +403,10 @@ namespace Airport
                                 break;
                             }
                         }
+                        if (noResultFound)
+                        {
+                            Console.WriteLine("No Results Found");
+                        }
                         break;
                         #endregion
                 }
@@ -400,16 +419,18 @@ namespace Airport
                         Console.WriteLine("2 - by time");
                         Console.WriteLine("3 - by city");
                         string searchParam = Console.ReadLine();
+                        noResultFound = true;
                         switch (searchParam)
                         {
                             #region SearchbyNumber
                             case "1":
                                 Console.WriteLine("Please enter the flight number");
-                                int searhNumber = Convert.ToInt32(Console.ReadLine());
+                                int searhNumber = Convert.ToInt32(Console.ReadLine());                               
                                 for (int x = 0; x < arrivals.Length; x++)
                                 {
                                     if (arrivals[x].Number == searhNumber)
                                     {
+                                        noResultFound = false;
                                         for (int i = 0; i < 85; i++)
                                         {
                                             Console.Write("—");
@@ -443,10 +464,11 @@ namespace Airport
                                         Console.WriteLine();
                                     }
                                 }
-                                for (int x = 0; x < arrivals.Length; x++)
+                                for (int x = 0; x < departures.Length; x++)
                                 {
                                     if (departures[x].Number == searhNumber)
                                     {
+                                        noResultFound = false;
                                         for (int i = 0; i < 85; i++)
                                         {
                                             Console.Write("—");
@@ -479,6 +501,10 @@ namespace Airport
                                         Console.WriteLine();
                                         Console.WriteLine();
                                     }
+                                }
+                                if (noResultFound)
+                                {
+                                    Console.WriteLine("No Results Found");
                                 }
                                 break;
                             #endregion
@@ -487,10 +513,12 @@ namespace Airport
                             case "2":
                                 Console.WriteLine("Please enter date and time in the following format dd/mm/yyyy hh:mm:ss");
                                 DateTime searhDate = Convert.ToDateTime(Console.ReadLine());
+                                noResultFound = true;
                                 for (int x = 0; x < arrivals.Length; x++)
-                                {
+                                {                                    
                                     if (arrivals[x].Date == searhDate)
                                     {
+                                        noResultFound = false;
                                         for (int i = 0; i < 85; i++)
                                         {
                                             Console.Write("—");
@@ -524,10 +552,11 @@ namespace Airport
                                         Console.WriteLine();
                                     }
                                 }
-                                for (int x = 0; x < arrivals.Length; x++)
+                                for (int x = 0; x < departures.Length; x++)
                                 {
                                     if (departures[x].Date == searhDate)
                                     {
+                                        noResultFound = false;
                                         for (int i = 0; i < 85; i++)
                                         {
                                             Console.Write("—");
@@ -561,6 +590,10 @@ namespace Airport
                                         Console.WriteLine();
                                         Console.WriteLine();
                                     }
+                                }
+                                if (noResultFound)
+                                {
+                                    Console.WriteLine("No Results Found");
                                 }
                                 break;
                             #endregion
@@ -569,10 +602,12 @@ namespace Airport
                             case "3":
                                 Console.WriteLine("Please enter City");
                                 string searhCity = Console.ReadLine();
+                                noResultFound = true;
                                 for (int x = 0; x < arrivals.Length; x++)
                                 {
                                     if (arrivals[x].City == searhCity)
                                     {
+                                        noResultFound = false;
                                         for (int i = 0; i < 85; i++)
                                         {
                                             Console.Write("—");
@@ -606,10 +641,11 @@ namespace Airport
                                         Console.WriteLine();
                                     }
                                 }
-                                for (int x = 0; x < arrivals.Length; x++)
+                                for (int x = 0; x < departures.Length; x++)
                                 {
                                     if (departures[x].City == searhCity)
                                     {
+                                        noResultFound = false;
                                         for (int i = 0; i < 85; i++)
                                         {
                                             Console.Write("—");
@@ -642,6 +678,10 @@ namespace Airport
                                         Console.WriteLine();
                                         Console.WriteLine();
                                     }
+                                }
+                                if (noResultFound)
+                                {
+                                    Console.WriteLine("No Results Found");
                                 }
                                 break;
                                 #endregion
@@ -653,11 +693,17 @@ namespace Airport
                 {
                     #region SearchNearest
                     case "6":
-                        DateTime localDate = DateTime.Now;
+                        Console.WriteLine("Please enter date and time in the following format dd/mm/yyyy hh:mm:ss");
+                        DateTime searchDate = Convert.ToDateTime(Console.ReadLine());
+                        Console.WriteLine("Please enter the Cite departure/arrival");
+                        string searhCity = Console.ReadLine();
+                        noResultFound = true;
+
                         for (int y = 0; y < arrivals.Length; y++)
                         {
-                            if (localDate.AddHours(1) > arrivals[y].Date && localDate.AddHours(-1) < arrivals[y].Date)
+                            if (searchDate.AddHours(1) > arrivals[y].Date && searchDate.AddHours(-1) < arrivals[y].Date && arrivals[y].City == searhCity)
                             {
+                                noResultFound = false;
                                 for (int i = 0; i < 85; i++)
                                 {
                                     Console.Write("—");
@@ -692,10 +738,11 @@ namespace Airport
                                 Console.WriteLine();
                             }
                         }
-                        for (int y = 0; y < departures.Length; y++)
+                        for (int x = 0; x < departures.Length; x++)
                         {
-                            if (localDate.AddHours(1) > departures[y].Date && localDate.AddHours(-1) < departures[y].Date)
+                            if (searchDate.AddHours(1) > departures[x].Date && searchDate.AddHours(-1) < departures[x].Date && departures[x].City == searhCity)
                             {
+                                noResultFound = false;
                                 for (int i = 0; i < 85; i++)
                                 {
                                     Console.Write("—");
@@ -707,19 +754,19 @@ namespace Airport
                                     Console.Write("—");
                                 }
                                 Console.WriteLine();
-                                Console.WriteLine("|" + "Arrivals".PadRight(83) + "|");
+                                Console.WriteLine("|" + "Departures".PadRight(83) + "|");
                                 for (int i = 0; i < 85; i++)
                                 {
                                     Console.Write("—");
                                 }
                                 Console.WriteLine();
                                 string output = "|";
-                                output += (arrivals[y].Date.ToString()).PadRight(20) + "|";
-                                output += (arrivals[y].Number.ToString()).PadRight(7) + "|";
-                                output += (arrivals[y].City.ToString()).PadRight(8) + "|";
-                                output += (arrivals[y].Airline.ToString()).PadRight(23) + "|";
-                                output += (arrivals[y].Terminal.ToString()).PadRight(9) + "|";
-                                output += (arrivals[y].Status.ToString()).PadRight(11) + "|";
+                                output += (departures[x].Date.ToString()).PadRight(20) + "|";
+                                output += (departures[x].Number.ToString()).PadRight(7) + "|";
+                                output += (departures[x].City.ToString()).PadRight(8) + "|";
+                                output += (departures[x].Airline.ToString()).PadRight(23) + "|";
+                                output += (departures[x].Terminal.ToString()).PadRight(9) + "|";
+                                output += (departures[x].Status.ToString()).PadRight(11) + "|";
                                 Console.WriteLine(output);
                                 for (int i = 0; i < 85; i++)
                                 {
@@ -728,6 +775,10 @@ namespace Airport
                                 Console.WriteLine();
                                 Console.WriteLine();
                             }
+                        }
+                        if (noResultFound)
+                        {
+                            Console.WriteLine("No Results Found");
                         }
                         break;
                         #endregion
