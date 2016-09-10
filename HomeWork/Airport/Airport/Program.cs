@@ -82,67 +82,42 @@ namespace Airport
                 {
                     #region ShowPannel 
                     case "1":
-                        for (int i = 0; i < 85; i++)
-                        {
-                            Console.Write("—");
-                        }
-                        Console.WriteLine();
-                        Console.WriteLine("|" + "Date".PadRight(20) + "|" + "Number".PadRight(7) + "|" + "City".PadRight(8) + "|" + "Airline".PadRight(23) + "|" + "Terminal".PadRight(9) + "|" + "Status".PadRight(11) + "|");
-                        for (int i = 0; i < 85; i++)
-                        {
-                            Console.Write("—");
-                        }
-                        Console.WriteLine();
-                        Console.WriteLine("|" + "Arrivals".PadRight(83) + "|");
-                        for (int i = 0; i < 85; i++)
-                        {
-                            Console.Write("—");
-                        }
-                        Console.WriteLine();
+                        Console.WriteLine(new string('-', 96));
+                        Console.WriteLine("|" + "Date".PadRight(20) + "|" + "Number".PadRight(7) + "|" + "City".PadRight(15) + "|" + "Airline".PadRight(23) + "|" + "Terminal".PadRight(9) + "|" + "Status".PadRight(15) + "|");
+                        Console.WriteLine(new string('-', 96));
+                        Console.WriteLine("|" + "Arrivals".PadRight(94) + "|");
+                        Console.WriteLine(new string('-', 96));
                         foreach (var line in arrivals)
                         {
                             string output = "|";
                             output += (line.Date.ToString()).PadRight(20) + "|";
                             output += (line.Number.ToString()).PadRight(7) + "|";
-                            output += (line.City.ToString()).PadRight(8) + "|";
+                            output += (line.City.ToString()).PadRight(15) + "|";
                             output += (line.Airline.ToString()).PadRight(23) + "|";
                             output += (line.Terminal.ToString()).PadRight(9) + "|";
-                            output += (line.Status.ToString()).PadRight(11) + "|";
+                            output += (line.Status.ToString()).PadRight(15) + "|";
                             Console.WriteLine(output);
                         }
-                        for (int i = 0; i < 85; i++)
-                        {
-                            Console.Write("—");
-                        }
-                        Console.WriteLine();
-                        Console.WriteLine("|" + "Departures".PadRight(83) + "|");
-                        for (int i = 0; i < 85; i++)
-                        {
-                            Console.Write("—");
-                        }
-                        Console.WriteLine();
+                        Console.WriteLine(new string('-', 96));
+                        Console.WriteLine("|" + "Departures".PadRight(94) + "|");
+                        Console.WriteLine(new string('-', 96));
                         foreach (var line in departures)
                         {
                             string output = "|";
                             output += (line.Date.ToString()).PadRight(20) + "|";
                             output += (line.Number.ToString()).PadRight(7) + "|";
-                            output += (line.City.ToString()).PadRight(8) + "|";
+                            output += (line.City.ToString()).PadRight(15) + "|";
                             output += (line.Airline.ToString()).PadRight(23) + "|";
                             output += (line.Terminal.ToString()).PadRight(9) + "|";
-                            output += (line.Status.ToString()).PadRight(11) + "|";
+                            output += (line.Status.ToString()).PadRight(15) + "|";
                             Console.WriteLine(output);
                         }
-                        for (int i = 0; i < 85; i++)
-                        {
-                            Console.Write("—");
-                        }
+                        Console.WriteLine(new string('-', 96));
                         Console.WriteLine();
                         Console.WriteLine();
                         break;
-                        #endregion
-                }
-                switch (choice)
-                {
+                    #endregion
+
                     #region AddInfo
                     case "2":
                         string panelChoice;
@@ -171,37 +146,15 @@ namespace Airport
                         Console.WriteLine("7 - Expected_at");
                         Console.WriteLine("8 - Delayed");
                         Console.WriteLine("9 - In_flight");
-                        switch (Console.ReadLine())
+                        string tempStatus = Console.ReadLine();
+                        var statusForAddInfo = new Status[] { Status.Check_in, Status.GateClosed, Status.Arrived, Status.Departed_at, Status.Unknown, Status.Canceled, Status.Expected_at, Status.Delayed, Status.In_flight };
+
+                        if (tempStatus != "")
                         {
-                            case "1":
-                                userFlight.Status = Status.Check_in;
-                                break;
-                            case "2":
-                                userFlight.Status = Status.GateClosed;
-                                break;
-                            case "3":
-                                userFlight.Status = Status.Arrived;
-                                break;
-                            case "4":
-                                userFlight.Status = Status.Departed_at;
-                                break;
-                            case "5":
-                                userFlight.Status = Status.Unknown;
-                                break;
-                            case "6":
-                                userFlight.Status = Status.Canceled;
-                                break;
-                            case "7":
-                                userFlight.Status = Status.Expected_at;
-                                break;
-                            case "8":
-                                userFlight.Status = Status.Delayed;
-                                break;
-                            case "9":
-                                userFlight.Status = Status.In_flight;
-                                break;
+                            userFlight.Status = statusForAddInfo[Int32.Parse(tempStatus) - 1];
                         }
 
+                        Console.WriteLine(new string('-', 96));
                         if (panelChoice == "1")
                         {
                             Flight[] arrTemp = new Flight[arrivals.Length + 1];
@@ -226,10 +179,8 @@ namespace Airport
                         Console.WriteLine("New flight has been succesfully added");
                         Console.WriteLine();
                         break;
-                        #endregion
-                }
-                switch (choice)
-                {
+                    #endregion
+
                     #region EditInfo
                     case "3":
                         Console.WriteLine();
@@ -301,38 +252,12 @@ namespace Airport
                             Console.WriteLine("8 - Delayed");
                             Console.WriteLine("9 - In_flight");
                             string newStatus = Console.ReadLine();
+
+                            var statusForEditInfo = new Status[] { Status.Check_in, Status.GateClosed, Status.Arrived, Status.Departed_at, Status.Unknown, Status.Canceled, Status.Expected_at, Status.Delayed, Status.In_flight };
+
                             if (newStatus != "")
                             {
-                                switch (newStatus)
-                                {
-                                    case "1":
-                                        currentFlight.Status = Status.Check_in;
-                                        break;
-                                    case "2":
-                                        currentFlight.Status = Status.GateClosed;
-                                        break;
-                                    case "3":
-                                        currentFlight.Status = Status.Arrived;
-                                        break;
-                                    case "4":
-                                        currentFlight.Status = Status.Departed_at;
-                                        break;
-                                    case "5":
-                                        currentFlight.Status = Status.Unknown;
-                                        break;
-                                    case "6":
-                                        currentFlight.Status = Status.Canceled;
-                                        break;
-                                    case "7":
-                                        currentFlight.Status = Status.Expected_at;
-                                        break;
-                                    case "8":
-                                        currentFlight.Status = Status.Delayed;
-                                        break;
-                                    case "9":
-                                        currentFlight.Status = Status.In_flight;
-                                        break;
-                                }
+                                currentFlight.Status = statusForEditInfo[Int32.Parse(newStatus) - 1];
                             }
                             if (isFirst)
                             {
@@ -349,10 +274,8 @@ namespace Airport
                         }
 
                         break;
-                        #endregion
-                }
-                switch (choice)
-                {
+                    #endregion
+
                     #region DeleteInfo
                     case "4":
                         Console.WriteLine();
@@ -408,10 +331,8 @@ namespace Airport
                             Console.WriteLine("No Results Found");
                         }
                         break;
-                        #endregion
-                }
-                switch (choice)
-                {
+                    #endregion
+
                     #region SearchBy
                     case "5":
                         Console.WriteLine("Choose the parameter for searching: ");
@@ -425,41 +346,26 @@ namespace Airport
                             #region SearchbyNumber
                             case "1":
                                 Console.WriteLine("Please enter the flight number");
-                                int searhNumber = Convert.ToInt32(Console.ReadLine());                               
+                                int searhNumber = Convert.ToInt32(Console.ReadLine());
                                 for (int x = 0; x < arrivals.Length; x++)
                                 {
                                     if (arrivals[x].Number == searhNumber)
                                     {
                                         noResultFound = false;
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
-                                        Console.WriteLine();
-                                        Console.WriteLine("|" + "Date".PadRight(20) + "|" + "Number".PadRight(7) + "|" + "City".PadRight(8) + "|" + "Airline".PadRight(23) + "|" + "Terminal".PadRight(9) + "|" + "Status".PadRight(11) + "|");
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
-                                        Console.WriteLine();
-                                        Console.WriteLine("|" + "Arrivals".PadRight(83) + "|");
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
-                                        Console.WriteLine();
+                                        Console.WriteLine(new string('-', 96));
+                                        Console.WriteLine("|" + "Date".PadRight(20) + "|" + "Number".PadRight(7) + "|" + "City".PadRight(15) + "|" + "Airline".PadRight(23) + "|" + "Terminal".PadRight(9) + "|" + "Status".PadRight(15) + "|");
+                                        Console.WriteLine(new string('-', 96));
+                                        Console.WriteLine("|" + "Arrivals".PadRight(94) + "|");
+                                        Console.WriteLine(new string('-', 96));
                                         string output = "|";
                                         output += (arrivals[x].Date.ToString()).PadRight(20) + "|";
                                         output += (arrivals[x].Number.ToString()).PadRight(7) + "|";
-                                        output += (arrivals[x].City.ToString()).PadRight(8) + "|";
+                                        output += (arrivals[x].City.ToString()).PadRight(15) + "|";
                                         output += (arrivals[x].Airline.ToString()).PadRight(23) + "|";
                                         output += (arrivals[x].Terminal.ToString()).PadRight(9) + "|";
-                                        output += (arrivals[x].Status.ToString()).PadRight(11) + "|";
+                                        output += (arrivals[x].Status.ToString()).PadRight(15) + "|";
                                         Console.WriteLine(output);
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
+                                        Console.WriteLine(new string('-', 96));
                                         Console.WriteLine();
                                         Console.WriteLine();
                                     }
@@ -469,35 +375,20 @@ namespace Airport
                                     if (departures[x].Number == searhNumber)
                                     {
                                         noResultFound = false;
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
-                                        Console.WriteLine();
-                                        Console.WriteLine("|" + "Date".PadRight(20) + "|" + "Number".PadRight(7) + "|" + "City".PadRight(8) + "|" + "Airline".PadRight(23) + "|" + "Terminal".PadRight(9) + "|" + "Status".PadRight(11) + "|");
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
-                                        Console.WriteLine();
-                                        Console.WriteLine("|" + "Departures".PadRight(83) + "|");
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
-                                        Console.WriteLine();
+                                        Console.WriteLine(new string('-', 96));
+                                        Console.WriteLine("|" + "Date".PadRight(20) + "|" + "Number".PadRight(7) + "|" + "City".PadRight(15) + "|" + "Airline".PadRight(23) + "|" + "Terminal".PadRight(9) + "|" + "Status".PadRight(15) + "|");
+                                        Console.WriteLine(new string('-', 96));
+                                        Console.WriteLine("|" + "Departures".PadRight(94) + "|");
+                                        Console.WriteLine(new string('-', 96));
                                         string output = "|";
                                         output += (departures[x].Date.ToString()).PadRight(20) + "|";
                                         output += (departures[x].Number.ToString()).PadRight(7) + "|";
-                                        output += (departures[x].City.ToString()).PadRight(8) + "|";
+                                        output += (departures[x].City.ToString()).PadRight(15) + "|";
                                         output += (departures[x].Airline.ToString()).PadRight(23) + "|";
                                         output += (departures[x].Terminal.ToString()).PadRight(9) + "|";
-                                        output += (departures[x].Status.ToString()).PadRight(11) + "|";
+                                        output += (departures[x].Status.ToString()).PadRight(15) + "|";
                                         Console.WriteLine(output);
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
+                                        Console.WriteLine(new string('-', 96));
                                         Console.WriteLine();
                                         Console.WriteLine();
                                     }
@@ -515,39 +406,24 @@ namespace Airport
                                 DateTime searhDate = Convert.ToDateTime(Console.ReadLine());
                                 noResultFound = true;
                                 for (int x = 0; x < arrivals.Length; x++)
-                                {                                    
+                                {
                                     if (arrivals[x].Date == searhDate)
                                     {
                                         noResultFound = false;
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
-                                        Console.WriteLine();
-                                        Console.WriteLine("|" + "Date".PadRight(20) + "|" + "Number".PadRight(7) + "|" + "City".PadRight(8) + "|" + "Airline".PadRight(23) + "|" + "Terminal".PadRight(9) + "|" + "Status".PadRight(11) + "|");
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
-                                        Console.WriteLine();
-                                        Console.WriteLine("|" + "Arrivals".PadRight(83) + "|");
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
-                                        Console.WriteLine();
+                                        Console.WriteLine(new string('-', 96));
+                                        Console.WriteLine("|" + "Date".PadRight(20) + "|" + "Number".PadRight(7) + "|" + "City".PadRight(15) + "|" + "Airline".PadRight(23) + "|" + "Terminal".PadRight(9) + "|" + "Status".PadRight(15) + "|");
+                                        Console.WriteLine(new string('-', 96));
+                                        Console.WriteLine("|" + "Arrivals".PadRight(94) + "|");
+                                        Console.WriteLine(new string('-', 96));
                                         string output = "|";
                                         output += (arrivals[x].Date.ToString()).PadRight(20) + "|";
                                         output += (arrivals[x].Number.ToString()).PadRight(7) + "|";
-                                        output += (arrivals[x].City.ToString()).PadRight(8) + "|";
+                                        output += (arrivals[x].City.ToString()).PadRight(15) + "|";
                                         output += (arrivals[x].Airline.ToString()).PadRight(23) + "|";
                                         output += (arrivals[x].Terminal.ToString()).PadRight(9) + "|";
-                                        output += (arrivals[x].Status.ToString()).PadRight(11) + "|";
+                                        output += (arrivals[x].Status.ToString()).PadRight(15) + "|";
                                         Console.WriteLine(output);
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
+                                        Console.WriteLine(new string('-', 96));
                                         Console.WriteLine();
                                         Console.WriteLine();
                                     }
@@ -557,36 +433,20 @@ namespace Airport
                                     if (departures[x].Date == searhDate)
                                     {
                                         noResultFound = false;
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
-                                        Console.WriteLine();
-
-                                        Console.WriteLine("|" + "Date".PadRight(20) + "|" + "Number".PadRight(7) + "|" + "City".PadRight(8) + "|" + "Airline".PadRight(23) + "|" + "Terminal".PadRight(9) + "|" + "Status".PadRight(11) + "|");
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
-                                        Console.WriteLine();
-                                        Console.WriteLine("|" + "Departures".PadRight(83) + "|");
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
-                                        Console.WriteLine();
+                                        Console.WriteLine(new string('-', 96));
+                                        Console.WriteLine("|" + "Date".PadRight(20) + "|" + "Number".PadRight(7) + "|" + "City".PadRight(15) + "|" + "Airline".PadRight(23) + "|" + "Terminal".PadRight(9) + "|" + "Status".PadRight(15) + "|");
+                                        Console.WriteLine(new string('-', 96));
+                                        Console.WriteLine("|" + "Departures".PadRight(94) + "|");
+                                        Console.WriteLine(new string('-', 96));
                                         string output = "|";
                                         output += (departures[x].Date.ToString()).PadRight(20) + "|";
                                         output += (departures[x].Number.ToString()).PadRight(7) + "|";
-                                        output += (departures[x].City.ToString()).PadRight(8) + "|";
+                                        output += (departures[x].City.ToString()).PadRight(15) + "|";
                                         output += (departures[x].Airline.ToString()).PadRight(23) + "|";
                                         output += (departures[x].Terminal.ToString()).PadRight(9) + "|";
-                                        output += (departures[x].Status.ToString()).PadRight(11) + "|";
+                                        output += (departures[x].Status.ToString()).PadRight(15) + "|";
                                         Console.WriteLine(output);
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
+                                        Console.WriteLine(new string('-', 96));
                                         Console.WriteLine();
                                         Console.WriteLine();
                                     }
@@ -608,35 +468,20 @@ namespace Airport
                                     if (arrivals[x].City == searhCity)
                                     {
                                         noResultFound = false;
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
-                                        Console.WriteLine();
-                                        Console.WriteLine("|" + "Date".PadRight(20) + "|" + "Number".PadRight(7) + "|" + "City".PadRight(8) + "|" + "Airline".PadRight(23) + "|" + "Terminal".PadRight(9) + "|" + "Status".PadRight(11) + "|");
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
-                                        Console.WriteLine();
-                                        Console.WriteLine("|" + "Arrivals".PadRight(83) + "|");
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
-                                        Console.WriteLine();
+                                        Console.WriteLine(new string('-', 96));
+                                        Console.WriteLine("|" + "Date".PadRight(20) + "|" + "Number".PadRight(7) + "|" + "City".PadRight(15) + "|" + "Airline".PadRight(23) + "|" + "Terminal".PadRight(9) + "|" + "Status".PadRight(15) + "|");
+                                        Console.WriteLine(new string('-', 96));
+                                        Console.WriteLine("|" + "Arrivals".PadRight(94) + "|");
+                                        Console.WriteLine(new string('-', 96));
                                         string output = "|";
                                         output += (arrivals[x].Date.ToString()).PadRight(20) + "|";
                                         output += (arrivals[x].Number.ToString()).PadRight(7) + "|";
-                                        output += (arrivals[x].City.ToString()).PadRight(8) + "|";
+                                        output += (arrivals[x].City.ToString()).PadRight(15) + "|";
                                         output += (arrivals[x].Airline.ToString()).PadRight(23) + "|";
                                         output += (arrivals[x].Terminal.ToString()).PadRight(9) + "|";
-                                        output += (arrivals[x].Status.ToString()).PadRight(11) + "|";
+                                        output += (arrivals[x].Status.ToString()).PadRight(15) + "|";
                                         Console.WriteLine(output);
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
+                                        Console.WriteLine(new string('-', 96));
                                         Console.WriteLine();
                                         Console.WriteLine();
                                     }
@@ -646,35 +491,20 @@ namespace Airport
                                     if (departures[x].City == searhCity)
                                     {
                                         noResultFound = false;
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
-                                        Console.WriteLine();
-                                        Console.WriteLine("|" + "Date".PadRight(20) + "|" + "Number".PadRight(7) + "|" + "City".PadRight(8) + "|" + "Airline".PadRight(23) + "|" + "Terminal".PadRight(9) + "|" + "Status".PadRight(11) + "|");
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
-                                        Console.WriteLine();
-                                        Console.WriteLine("|" + "Departures".PadRight(83) + "|");
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
-                                        Console.WriteLine();
+                                        Console.WriteLine(new string('-', 96));
+                                        Console.WriteLine("|" + "Date".PadRight(20) + "|" + "Number".PadRight(7) + "|" + "City".PadRight(15) + "|" + "Airline".PadRight(23) + "|" + "Terminal".PadRight(9) + "|" + "Status".PadRight(15) + "|");
+                                        Console.WriteLine(new string('-', 96));
+                                        Console.WriteLine("|" + "Departures".PadRight(94) + "|");
+                                        Console.WriteLine(new string('-', 96));
                                         string output = "|";
                                         output += (departures[x].Date.ToString()).PadRight(20) + "|";
                                         output += (departures[x].Number.ToString()).PadRight(7) + "|";
-                                        output += (departures[x].City.ToString()).PadRight(8) + "|";
+                                        output += (departures[x].City.ToString()).PadRight(15) + "|";
                                         output += (departures[x].Airline.ToString()).PadRight(23) + "|";
                                         output += (departures[x].Terminal.ToString()).PadRight(9) + "|";
-                                        output += (departures[x].Status.ToString()).PadRight(11) + "|";
+                                        output += (departures[x].Status.ToString()).PadRight(15) + "|";
                                         Console.WriteLine(output);
-                                        for (int i = 0; i < 85; i++)
-                                        {
-                                            Console.Write("—");
-                                        }
+                                        Console.WriteLine(new string('-', 96));
                                         Console.WriteLine();
                                         Console.WriteLine();
                                     }
@@ -687,91 +517,58 @@ namespace Airport
                                 #endregion
                         }
                         break;
-                        #endregion
-                }
-                switch (choice)
-                {
+                    #endregion
+
                     #region SearchNearest
                     case "6":
                         Console.WriteLine("Please enter date and time in the following format dd/mm/yyyy hh:mm:ss");
                         DateTime searchDate = Convert.ToDateTime(Console.ReadLine());
                         Console.WriteLine("Please enter the Cite departure/arrival");
-                        string searhCity = Console.ReadLine();
+                        string searhCityForNearestRace = Console.ReadLine();
                         noResultFound = true;
 
                         for (int y = 0; y < arrivals.Length; y++)
                         {
-                            if (searchDate.AddHours(1) > arrivals[y].Date && searchDate.AddHours(-1) < arrivals[y].Date && arrivals[y].City == searhCity)
+                            if (searchDate.AddHours(1) > arrivals[y].Date && searchDate.AddHours(-1) < arrivals[y].Date && arrivals[y].City == searhCityForNearestRace)
                             {
                                 noResultFound = false;
-                                for (int i = 0; i < 85; i++)
-                                {
-                                    Console.Write("—");
-                                }
-                                Console.WriteLine();
-
-                                Console.WriteLine("|" + "Date".PadRight(20) + "|" + "Number".PadRight(7) + "|" + "City".PadRight(8) + "|" + "Airline".PadRight(23) + "|" + "Terminal".PadRight(9) + "|" + "Status".PadRight(11) + "|");
-                                for (int i = 0; i < 85; i++)
-                                {
-                                    Console.Write("—");
-                                }
-                                Console.WriteLine();
-                                Console.WriteLine("|" + "Arrivals".PadRight(83) + "|");
-                                for (int i = 0; i < 85; i++)
-                                {
-                                    Console.Write("—");
-                                }
-                                Console.WriteLine();
+                                Console.WriteLine(new string('-', 96));
+                                Console.WriteLine("|" + "Date".PadRight(20) + "|" + "Number".PadRight(7) + "|" + "City".PadRight(15) + "|" + "Airline".PadRight(23) + "|" + "Terminal".PadRight(9) + "|" + "Status".PadRight(15) + "|");
+                                Console.WriteLine(new string('-', 96));
+                                Console.WriteLine("|" + "Arrivals".PadRight(94) + "|");
+                                Console.WriteLine(new string('-', 96));
                                 string output = "|";
                                 output += (arrivals[y].Date.ToString()).PadRight(20) + "|";
                                 output += (arrivals[y].Number.ToString()).PadRight(7) + "|";
-                                output += (arrivals[y].City.ToString()).PadRight(8) + "|";
+                                output += (arrivals[y].City.ToString()).PadRight(15) + "|";
                                 output += (arrivals[y].Airline.ToString()).PadRight(23) + "|";
                                 output += (arrivals[y].Terminal.ToString()).PadRight(9) + "|";
-                                output += (arrivals[y].Status.ToString()).PadRight(11) + "|";
+                                output += (arrivals[y].Status.ToString()).PadRight(15) + "|";
                                 Console.WriteLine(output);
-                                for (int i = 0; i < 85; i++)
-                                {
-                                    Console.Write("—");
-                                }
+                                Console.WriteLine(new string('-', 96));
                                 Console.WriteLine();
                                 Console.WriteLine();
                             }
                         }
                         for (int x = 0; x < departures.Length; x++)
                         {
-                            if (searchDate.AddHours(1) > departures[x].Date && searchDate.AddHours(-1) < departures[x].Date && departures[x].City == searhCity)
+                            if (searchDate.AddHours(1) > departures[x].Date && searchDate.AddHours(-1) < departures[x].Date && departures[x].City == searhCityForNearestRace)
                             {
                                 noResultFound = false;
-                                for (int i = 0; i < 85; i++)
-                                {
-                                    Console.Write("—");
-                                }
-                                Console.WriteLine();
-                                Console.WriteLine("|" + "Date".PadRight(20) + "|" + "Number".PadRight(7) + "|" + "City".PadRight(8) + "|" + "Airline".PadRight(23) + "|" + "Terminal".PadRight(9) + "|" + "Status".PadRight(11) + "|");
-                                for (int i = 0; i < 85; i++)
-                                {
-                                    Console.Write("—");
-                                }
-                                Console.WriteLine();
-                                Console.WriteLine("|" + "Departures".PadRight(83) + "|");
-                                for (int i = 0; i < 85; i++)
-                                {
-                                    Console.Write("—");
-                                }
-                                Console.WriteLine();
+                                Console.WriteLine(new string('-', 96));
+                                Console.WriteLine("|" + "Date".PadRight(20) + "|" + "Number".PadRight(7) + "|" + "City".PadRight(15) + "|" + "Airline".PadRight(23) + "|" + "Terminal".PadRight(9) + "|" + "Status".PadRight(15) + "|");
+                                Console.WriteLine(new string('-', 96));
+                                Console.WriteLine("|" + "Departures".PadRight(94) + "|");
+                                Console.WriteLine(new string('-', 96));
                                 string output = "|";
                                 output += (departures[x].Date.ToString()).PadRight(20) + "|";
                                 output += (departures[x].Number.ToString()).PadRight(7) + "|";
-                                output += (departures[x].City.ToString()).PadRight(8) + "|";
+                                output += (departures[x].City.ToString()).PadRight(15) + "|";
                                 output += (departures[x].Airline.ToString()).PadRight(23) + "|";
                                 output += (departures[x].Terminal.ToString()).PadRight(9) + "|";
-                                output += (departures[x].Status.ToString()).PadRight(11) + "|";
+                                output += (departures[x].Status.ToString()).PadRight(15) + "|";
                                 Console.WriteLine(output);
-                                for (int i = 0; i < 85; i++)
-                                {
-                                    Console.Write("—");
-                                }
+                                Console.WriteLine(new string('-', 96));
                                 Console.WriteLine();
                                 Console.WriteLine();
                             }
@@ -787,3 +584,4 @@ namespace Airport
         }
     }
 }
+
